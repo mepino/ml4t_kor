@@ -1,4 +1,28 @@
-# Machine Learning for Trading: From Idea to Execution
+# 트레이딩을 위한 머신러닝
+
+**알고리즘 트레이딩** : 알고리즘을 사용해 실제 주문을 실행
+알고리즘 : 목표를 달성하기 위한 규칙이나 절차
+ - ex. Active investment management : 알파(벤치마크를 초과하는 수익률) 달성 by 정보의 우위[대체데이터] 또는 고도화된 데이터 분석
+ - 참고. 5장. 위험조정지표 : 샤프비율, 트레이너지수, 젠센알파, 정보비율(IC*BR^0.5, 정보 계수 IC=(2×Proportion Correct)−1의 곱) = 알파/트래킹 에러]
+ 왜? ex. 종목 선택 전략 / 마켓 타이밍 전략 비교 가능
+
+1. 책 구성
+2. 
+3. 
+4. 
+
+1. 투자자별 위험선호도(KYC)에 따른 매력적인 목표 수익률을 제공하고자
+2. 시장 거래를 관찰
+3. 포트폴리오 매니저의 매매행위
+ 하는 포트폴리오를 보유하기 위한 매수/매도 주문
+
+트레이딩 ? (+목표)
+2. 머신러닝이란?
+3. 궁금적인 목적 (알파)
+- 기타 IR, IC
+
+책 목차
+
 
 Algorithmic trading relies on computer programs that execute algorithms to automate some or all elements of a trading strategy. **Algorithms** are a sequence of steps or rules designed to achieve a goal. They can take many forms and facilitate optimization throughout the investment process, from idea generation to asset allocation, trade execution, and risk management.
 
@@ -46,47 +70,43 @@ This chapter looks at industry trends that have led to the emergence of ML as a 
     * [ML Competitions & Trading](#ml-competitions--trading)
     * [Python Libraries](#python-libraries)
 
-## The rise of ML in the investment industry
+## 썰풀기
 
-The investment industry has evolved dramatically over the last several decades and continues to do so amid increased competition, technological advances, and a challenging economic environment. This section reviews key trends that have shaped the overall investment environment overall and the context for algorithmic trading and the use of ML more specifically.
+## 투자업계에서 머신러닝의 부상
 
-The trends that have propelled algorithmic trading and ML to current prominence include:
-- Changes in the market microstructure, such as the spread of electronic trading and the integration of markets across asset classes and geographies
-- The development of investment strategies framed in terms of risk-factor exposure, as opposed to asset classes
-- The revolutions in computing power, data generation and management, and statistical methods, including breakthroughs in deep learning
-- The outperformance of the pioneers in algorithmic trading relative to human, discretionary investors
+왜?
+..액티브 성과 안좋음..
+1. 전자거래 확산, 시장통합 등 시장구조 변화
+2. 투자전략 개발
+3. 컴퓨팅 파워, 데이터
+4. 성과좋음
 
-In addition, the financial crises of 2001 and 2008 have affected how investors approach diversification and risk management. One outcome is the rise to low-cost passive investment vehicles in the form of exchange-traded funds (ETFs). Amid low yields and low volatility following the 2008 crisis that triggered large-scale asset purchases by leading central banks, cost-conscious investors shifted over $3.5 trillion from actively managed mutual funds into passively managed ETFs. 
+### 전자거래에서 고빈도 거래까지
 
-Competitive pressure is also reflected in lower hedge fund fees that dropped from the traditional 2 percent annual management fee and 20 percent take of profits to an average of 1.48 percent and 17.4 percent, respectively, in 2017.
-
-### From electronic to high-frequency trading
-
-Electronic trading has advanced dramatically in terms of capabilities, volume, coverage of asset classes, and geographies since networks started routing prices to computer terminals in the 1960s.
+처음에는 시장충격 제한위해 시간에 걸쳐 주문 분산시키는 주문실행 목적으로 사용 - 이후 매수 쪽으로 진행 - 단기 가격 및 거래량 예측, 거래비용 및 유동성까지 고려
+고빈도 거래 : 마이크로초 단위 [패시브 : , 액티브 : Momentum Ignition(다른 알고리즘 움직이게 만드는거), Liquidity Detection ]
 
 - [Dark Pool Trading & Finance](https://www.cfainstitute.org/en/advocacy/issues/dark-pools), CFA Institute
 - [Dark Pools in Equity Trading: Policy Concerns and Recent Developments](https://crsreports.congress.gov/product/pdf/R/R43739), Congressional Research Service, 2014
 - [High Frequency Trading: Overview of Recent Developments](https://fas.org/sgp/crs/misc/R44443.pdf), Congressional Research Service, 2016
 
-### Factor investing and smart beta funds
+### 팩터 투자와 스마트 투자
 
-The return provided by an asset is a function of the uncertainty or risk associated with the financial investment. An equity investment implies, for example, assuming a company's business risk, and a bond investment implies assuming default risk.
+(마코비츠)모든 투자자는 자신의 포트폴리오를 최적화 시키려 한다 by 수익률 & 위험
+-> 수익률은 불확실성과 위험의 함수 ex) 주식 : 회사의 사업위험, 채권 : 디폴트 위험
+-> 리스크 요소별로 나누고 그 움직임을 예측해보자!
 
-To the extent that specific risk characteristics predict returns, identifying and forecasting the behavior of these risk factors becomes a primary focus when designing an investment strategy. It yields valuable trading signals and is the key to superior active-management results. The industry's understanding of risk factors has evolved very substantially over time and has impacted how ML is used for algorithmic trading.
+현대 포트폴리오 이론 : 체계적 위험, 비체계적 위험의 원천 구별 (risk 요인 구별, risk free, Unsystematic risk는 없앨 수 있다)
+"시장" 포트폴리오가 efficient하다 > CAPM(Asset Pricing Model) : 특정한 자산의 가격은 그 자산의 "beta" 알면 구할 수 있다 (risk free + 시장위험) [아닌자산 있으면 돈벌 수 있다] : 주식가격 분석하는 좋은 툴
+MPT + 제대로 작동하는 시장에선 아비트라지가 없다 > 다요인 모형 : APT모형[GDP, 인플레이션], 파마-프렌치 모형, 가치투자(벤자민 그래험, 워런 버핏 등), 모멘텀]
 
-The factors that explained returns above and beyond the CAPM were incorporated into investment styles that tilt portfolios in favor of one or more factors, and assets began to migrate into factor-based portfolios. The 2008 financial crisis underlined how asset-class labels could be highly misleading and create a false sense of diversification when investors do not look at the underlying factor risks, as asset classes came crashing down together.
+2008 금융위기 > 자산군으로만 나누는게 아니라 factor 기준으로 나누는게 필요
 
-Over the past several decades, quantitative factor investing has evolved from a simple approach based on two or three styles to multifactor smart or exotic beta products. Smart beta funds have crossed $1 trillion AUM in 2017, testifying to the popularity of the hybrid investment strategy that combines active and passive management. Smart beta funds take a passive strategy but modify it according to one or more factors, such as cheaper stocks or screening them according to dividend payouts, to generate better returns. This growth has coincided with increasing criticism of the high fees charged by traditional active managers as well as heightened scrutiny of their performance.
+but! apt는 어떤 factor, 몇개의 factor가 필요한지 알기 어렵다 > 머신러닝 등장
 
-The ongoing discovery and successful forecasting of risk factors that, either individually or in combination with other risk factors, significantly impact future asset returns across asset classes is a key driver of the surge in ML in the investment industry and will be a key theme throughout this book.
+### 알고리즘 개척자는 인간보다 우위
 
-### Algorithmic pioneers outperform humans
-
-The track record and growth of Assets Under Management (AUM) of firms that spearheaded algorithmic trading has played a key role in generating investor interest and subsequent industry efforts to replicate their success.
-
-Systematic strategies that mostly or exclusively rely on algorithmic decision-making were most famously introduced by mathematician James Simons who founded Renaissance Technologies in 1982 and built it into the premier quant firm. Its secretive Medallion Fund, which is closed to outsiders, has earned an estimated annualized return of 35% since 1982.
-
-DE Shaw, Citadel, and Two Sigma, three of the most prominent quantitative hedge funds that use systematic strategies based on algorithms, rose to the all-time top-20 performers for the first time in 2017 in terms of total dollars earned for investors, after fees, and since inception.
+다이쇼, 시타델, 투시그마, 르네상스 테크놀로지, AQR
 
 #### ML driven funds attract $1 trillion AUM
 
