@@ -52,7 +52,8 @@
     * [Python Libraries](#python-libraries)
 
 
-## 썰풀기 시작 : 결국 트레이딩 워크플로우 각각에서 머신러닝이 사람보다 뛰어났다는 이야기
+## 썰풀기 시작
+결국 트레이딩 워크플로우 각각에서 머신러닝이 사람보다 뛰어났다는 이야기
 
 ## 투자업계에서 머신러닝의 부상
 
@@ -142,13 +143,14 @@ discretionary investing : 심층적 분석도 사용 (알고리즘으로 한번 
 
 ## ML 적용 실제사례
 
-### 썰풀기
+### 썰풀기 : 분야 나누기
 
-1. In the 1980s and 1990s, signals often emerged from academic research and used a single or very few inputs derived from market and fundamental data. AQR, one of the largest quantitative hedge funds today, was founded in 1998 to implement such strategies at scale. These signals are now largely commoditized and available as ETF, such as basic mean-reversion strategies.
-2. In the 2000s, factor-based investing proliferated based on the pioneering work by Eugene Fama and Kenneth French and others. Funds used algorithms to identify assets exposed to risk factors like value or momentum to seek arbitrage opportunities. Redemptions during the early days of the financial crisis triggered the quant quake of August 2007 that cascaded through the factor-based fund industry. These strategies are now also available as long-only smart beta funds that tilt portfolios according to a given set of risk factors.
-3. The third era is driven by investments in ML capabilities and alternative data to generate profitable signals for repeatable trading strategies. Factor decay is a major challenge: the excess returns from new anomalies have been shown to drop by a quarter from discovery to publication, and by over 50 percent after publication due to competition and crowding.
+1. 회사별 분류
+- ETF
+- 리스크 관리
+- 알파 생성
 
-Today, traders pursue a range of different objectives when using algorithms to execute rules:
+2. 목표에 따른 분류
 - 주문집행
 - HFT (차익거래)
 - 행동 예측
@@ -169,9 +171,6 @@ Today, traders pursue a range of different objectives when using algorithms to e
 
 #### Supervised learning for alpha factor creation and aggregation -> 모델링 방식 : 타깃 바꿔보기(매크로, 변동성), 시계열 예측(RNN)
 #### Asset allocation -> 자산배분 : 묶여있는 자산군이 아니라 특성에 따라 새로 묶고 배분해서 최적화 가능
-
-
-
 
 ## Resources & References
 
