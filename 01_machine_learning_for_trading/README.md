@@ -14,13 +14,6 @@
 
 책 기준으로 보면, 각자 자신의 목표를 기준으로 평가방법(5, 8장) 세우고 데이터(2, 3장) 이용해서 피쳐(4, 13, 20장, 3부[자연어], 4부[이미지]) 뽑아내고 자산별 예측 모델(7, 9~12, 19장) 결과값 넣어서 포트폴리오 최적화(5장) 된 걸 시뮬레이션 등으로 테스트 해본 후(CV, 21장, GAN) 잘 주문(22장, 강화학습)
 
-
-1. 투자자별 위험선호도(KYC)에 따른 매력적인 목표 수익률을 제공하고자
-2. 시장 거래를 관찰
-3. 포트폴리오 매니저의 매매행위
- 하는 포트폴리오를 보유하기 위한 매수/매도 주문
-
-
 ## Content
 
 1. [The rise of ML in the investment industry](#the-rise-of-ml-in-the-investment-industry)
@@ -58,9 +51,8 @@
 ## 투자업계에서 머신러닝의 부상
 
 왜?
-..액티브 성과 안좋음..
 1. 전자거래 확산, 시장구조 변화
-2. risk-factor exposure 측면의 투자전략 개발
+2. Market Crash 등으로 인한 위험관리 필요 : risk-factor exposure 측면의 투자전략 개발
 3. 컴퓨팅 파워, 데이터 측면 발전
 4. 인간보다 성과좋음
 
@@ -93,10 +85,11 @@
 but! apt는 어떤 factor, 몇개의 factor가 필요한지 알기 어렵다 > 머신러닝 적용
 
 ### 알고리즘 개척자는 인간보다 우위
-요약 : 전략도 잘짠다 (사람 같이 쓰는곳들도 있다)
-ex. 다이쇼, 시타델, 투시그마, 르네상스 테크놀로지, AQR
+요약 : 전략도 잘짠다 (사람 같이 쓰는곳들도 있다) ex. 다이쇼, 시타델, 투시그마, 르네상스 테크놀로지, AQR
+
 
 systematic (or quant) : 알고리즘에만 의존
+
 퀀터멘탈 ~ discretionary investing : 심층적 분석도 사용 (알고리즘으로 한번 걸러내고 리서치 추가 이용, 맨 플러스 머신)
 
 #### 결과적으로 ML driven funds attract $1 trillion AUM
@@ -106,17 +99,17 @@ systematic (or quant) : 알고리즘에만 의존
 - [The stockmarket is now run by computers, algorithms and passive managers](https://www.economist.com/briefing/2019/10/05/the-stockmarket-is-now-run-by-computers-algorithms-and-passive-managers), Economist, Oct 5, 2019
 
 ### ML and alternative data
-요약 : 퀀트 내에서도 머신러닝 사용 증가추세
+요약 : 정보우위 위해서 퀀트 내에서도 머신러닝 사용 증가추세
 
-디지털 데이터 양 증가, 컴퓨팅 파워 증가, 데이터 분석 위한 머신러닝 기법 발달
-전통적인 데이터 : 경제 통계, 거래 데이터, 기업 보고서
-대체 데이터 : 실적관련[취업공고 감소, 임원 내부등급 평가, 해당 사이트 의류 평균가격 하락, 주차장 위성 이미지, 모바일 위치정보, 신용카드 판매 데이터], 감성분석, 웹사이트 스크래핑 등
-> 데이터 커서 병렬처리 위한 하둡, 스파크 사용
+디지털 데이터 양 증가, 컴퓨팅 파워 증가, 데이터 분석 위한 머신러닝 기법 발달 통해서 대체 데이터 사용 가능
+1. 전통적인 데이터 : 경제 통계, 거래 데이터, 기업 보고서
+2. 대체 데이터 : 실적관련[취업공고 감소, 임원 내부등급 평가, 해당 사이트 의류 평균가격 하락, 주차장 위성 이미지, 모바일 위치정보, 신용카드 판매 데이터], 감성분석, 웹사이트 스크래핑 등
+- 데이터 커서 병렬처리 위한 하둡, 스파크 사용
 
 - [Can We Predict the Financial Markets Based on Google's Search Queries?](https://onlinelibrary.wiley.com/doi/abs/10.1002/for.2446), Perlin, et al, 2016, Journal of Forecasting
 
 ### 크라우드 소싱 거래 알고리즘
-퀀토피안은 망함..
+퀀토피안은 망함.. 월드퀀트 팩터는 부록에서 참고 가능
 
 
 ## ML 적용 실제사례
