@@ -1,7 +1,13 @@
 # 트레이딩을 위한 머신러닝
 
-**알고리즘 트레이딩** : 알고리즘을 사용해 실제 주문을 실행
-알고리즘 : 목표를 달성하기 위한 규칙이나 절차
+얻어갈 것 : 트레이딩용 end-to-end 머신러닝 워크플로우
+
+<p align="center">
+<img src="https://i.imgur.com/kcgItgp.png" width="75%">
+</p>
+
+
+**알고리즘 트레이딩** : 알고리즘(목표를 달성하기 위한 규칙이나 절차)을 사용해 실제 주문을 집행 
  - ex. Active investment management : 알파(벤치마크를 초과하는 수익률) 달성 by 정보의 우위[대체데이터] 또는 고도화된 데이터 분석
  - 참고. 5장. 위험조정지표 : 샤프비율, 트레이너지수, 젠센알파, 정보비율(IC*BR^0.5, 정보 계수 IC=(2×Proportion Correct)−1의 곱) = 알파/트래킹 에러]
  왜? ex. 종목 선택 전략 / 마켓 타이밍 전략 비교 가능
@@ -123,10 +129,6 @@ discretionary investing : 심층적 분석도 사용 (알고리즘으로 한번 
 ## Designing and executing an ML-driven strategy
 
 데이터 > 피쳐 엔지니어링 > 포트폴리오 관리 및 성과 추적(8장 백테스팅)
-
-<p align="center">
-<img src="https://i.imgur.com/kcgItgp.png" width="75%">
-</p>
 
 [Chapter 4, Alpha Factor Research](../04_alpha_factor_research) outlines a methodologically sound process to manage the risk of false discoveries that increases with the amount of data. [Chapter 5, Strategy Evaluation](../05_strategy_evaluation) provides the context for the execution and performance measurement of a trading strategy.
 
