@@ -9,10 +9,11 @@
 
 **알고리즘 트레이딩** : 알고리즘(목표를 달성하기 위한 규칙이나 절차)을 사용해 실제 주문을 집행. 끝에서 부터 보면,
  - 목표 예시. Active investment management : 알파(벤치마크를 초과하는 수익률) 달성
- - Evaluation 예시. 위험조정지표 : 샤프비율, 트레이너지수, 젠센알파, 정보비율(IC*BR^0.5, 정보 계수 IC=(2×Proportion Correct)−1의 곱) = 알파/트래킹 에러] > 왜? ex. 종목 선택 전략 / 마켓 타이밍 전략 비교 가능
- - 방법 예시. 정보의 우위[대체데이터](#ml-and-alternative-data) 또는 고도화된 데이터 분석
+ - Evaluation 예시. 위험조정지표 : 샤프비율, 트레이너지수, 젠센알파, 정보비율(IR=IC*BR^0.5, 정보 계수 IC=(2×Proportion Correct)−1)] > 전략에 대한 평가 및 전략별 비교 가능 (ex. 종목 선택 전략 / 마켓 타이밍 전략)
+ - 방법 예시. [대체데이터](#ml-and-alternative-data) 등 이용한 정보의 우위 또는 고도화된 데이터 분석
 
-책 기준으로 보면, 각자 자신의 목표를 기준으로 평가방법(5, 8장) 세우고 데이터(2, 3장) 이용해서 피쳐(4, 13, 20장, 3부[자연어], 4부[이미지]) 뽑아내고 자산별 예측 모델(7, 9~12, 19장) 결과값 넣어서 포트폴리오 최적화(5장) 된 걸 주문(22장)
+책 기준으로 보면, 각자 자신의 목표를 기준으로 평가방법(5, 8장) 세우고 데이터(2, 3장) 이용해서 피쳐(4, 13, 20장, 3부[자연어], 4부[이미지]) 뽑아내고 자산별 예측 모델(7, 9~12, 19장) 결과값 넣어서 포트폴리오 최적화(5장) 된 걸 시뮬레이션 등으로 테스트 해본 후(CV, 21장, GAN) 잘 주문(22장, 강화학습)
+
 
 1. 투자자별 위험선호도(KYC)에 따른 매력적인 목표 수익률을 제공하고자
 2. 시장 거래를 관찰
@@ -57,15 +58,16 @@
 
 왜?
 ..액티브 성과 안좋음..
-1. 전자거래 확산, 시장통합 등 시장구조 변화
-2. 투자전략 개발
-3. 컴퓨팅 파워, 데이터
-4. 성과좋음
+1. 전자거래 확산, 시장구조 변화
+2. risk-factor exposure 측면의 투자전략 개발
+3. 컴퓨팅 파워, 데이터 측면 발전
+4. 인간보다 성과좋음
 
 ### 전자거래에서 고빈도 거래까지
 
+요약 : Execution 단에서 잘했다 (22장)
 처음에는 시장충격 제한위해 시간에 걸쳐 주문 분산시키는 주문실행 목적으로 사용 - 이후 매수 쪽으로 진행 - 단기 가격 및 거래량 예측, 거래비용 및 유동성까지 고려
-고빈도 거래 : 마이크로초 단위 [패시브 : 차익 거래, 액티브 : Momentum Ignition(다른 알고리즘 움직이게 만드는거), Liquidity Detection ]
+이후 고빈도 거래에도 사용(마이크로초 단위의 거래 ~ 패시브 : 차익 거래 / 액티브 : Momentum Ignition(다른 알고리즘 움직이게 만드는거), Liquidity Detection)
 
 - [Dark Pool Trading & Finance](https://www.cfainstitute.org/en/advocacy/issues/dark-pools), CFA Institute
 - [Dark Pools in Equity Trading: Policy Concerns and Recent Developments](https://crsreports.congress.gov/product/pdf/R/R43739), Congressional Research Service, 2014
@@ -73,6 +75,7 @@
 
 ### 팩터 투자와 스마트 투자
 
+요약 : Feature 단에서 잘했다. (4, 13, 20장, 3부[자연어], 4부[이미지])
 (마코비츠)모든 투자자는 자신의 포트폴리오를 최적화 시키려 한다 by 수익률 & 위험
 -> 수익률은 불확실성과 위험의 함수 ex) 주식 : 회사의 사업위험, 채권 : 디폴트 위험
 -> 리스크 요소별로 나누고 그 움직임을 예측해보자!
@@ -135,13 +138,13 @@ discretionary investing : 심층적 분석도 사용 (알고리즘으로 한번 
 
 백테스팅 거쳐서 통과하면 실제로 전략풀에 넣는다 (ex. 시뮬레이션)
 
+
+
 ## ML for trading in practice: strategies and use cases
 
 ML 실제사례
 
 ### The evolution of algorithmic strategies
-
-Quantitative strategies have evolved and become more sophisticated in three waves:
 
 1. In the 1980s and 1990s, signals often emerged from academic research and used a single or very few inputs derived from market and fundamental data. AQR, one of the largest quantitative hedge funds today, was founded in 1998 to implement such strategies at scale. These signals are now largely commoditized and available as ETF, such as basic mean-reversion strategies.
 2. In the 2000s, factor-based investing proliferated based on the pioneering work by Eugene Fama and Kenneth French and others. Funds used algorithms to identify assets exposed to risk factors like value or momentum to seek arbitrage opportunities. Redemptions during the early days of the financial crisis triggered the quant quake of August 2007 that cascaded through the factor-based fund industry. These strategies are now also available as long-only smart beta funds that tilt portfolios according to a given set of risk factors.
@@ -153,55 +156,26 @@ Today, traders pursue a range of different objectives when using algorithms to e
 - 행동 예측
 - Asset Pricing 기반 전략
 
+
+
 ### Use cases of ML for trading
 
-- Data mining to identify patterns, extract features and generate insights
-- Supervised learning to generate risk factors or alphas and create trade ideas
-- Aggregation of individual signals into a strategy
-- Allocation of assets according to risk profiles learned by an algorithm
-- The testing and evaluation of strategies, including through the use of synthetic data
-- The interactive, automated refinement of a strategy using reinforcement learning
-
-We briefly highlight some of these applications and identify where we will demonstrate their use in later chapters.
+- 개별 신호를 전략을 통합 (메릴린치 방식)
 
 #### Data mining for feature extraction and insights -> 피쳐 뽑기
 
-The cost-effective evaluation of large, complex datasets requires the detection of signals at scale. There are several examples throughout the book:
 - **Information theory** : 해당 피쳐 평가 통한 입력변수 추출에 활용
 - **Unsupervised learning**  ex. 크래프트
     - In Chapter 13, [Unsupervised Learning: From Data-Driven Risk Factors to Hierarchical Risk Parity](../13_unsupervised_learning/README.md), we introduce clustering and dimensionality reduction to generate features from high-dimensional datasets. 
     - In Chapter 15, [Topic Modeling for Earnings Calls and Financial News](../15_topic_modeling/README.md), we apply Bayesian probability models to summarize financial text data.
     - In Chapter 20: [Autoencoders for Conditional Risk Factors](../20_autoencoders_for_conditional_risk_factors), we used deep learning to extract non-linear risk factors conditioned on asset characteristics and predict stock returns based on [Kelly et. al.](https://www.aqr.com/Insights/Research/Working-Paper/Autoencoder-Asset-Pricing-Models) (2020).
-- **Model transparency**: 피쳐 중요도.. we emphasize model-specific ways to gain insights into the predictive power of individual variables and introduce a novel game-theoretic approach called SHapley Additive exPlanations (SHAP). We apply it to gradient boosting machines with a large number of input variables in Chapter 12, Boosting your Trading Strategy and the Appendix.
+- **Model transparency**: 피쳐 중요도..
 
-#### Supervised learning for alpha factor creation and aggregation -> 모델링
-
-The most familiar rationale for applying ML to trading is to obtain predictions of asset fundamentals, price movements, or market conditions. A strategy can leverage multiple ML algorithms that build on each other:
-
-- **Downstream models** can generate signals at the portfolio level by integrating predictions about the prospects of individual assets, capital market expectations, and the correlation among securities. 
-- Alternatively, ML predictions can inform **discretionary trades** as in the quantamental approach outlined previously. 
-
-ML predictions can also **target specific risk factors**, such as value or volatility, or implement technical approaches, such as trend-following or mean reversion:
-- In Chapter 3, [Alternative Data for Finance: Categories and Use Cases](../03_alternative_data/README.md), we illustrate how to work with fundamental data to create inputs to ML-driven valuation models.
-- In Chapter 14, [Text Data for Trading: Sentiment Analysis](../14_working_with_text_data/README.md), Chapter 15, [Topic Modeling for Earnings Calls and Financial News](../15_topic_modeling/README.md), and Chapter 16, [Extracting Better Features: Word Embeddings for Earnings Calls and SEC Filings](../16_word_embeddings/README.md), we use alternative data on business reviews that can be used to project revenues for a company as an input for a valuation exercise.
-- In Chapter 9, [From Volatility Forecasts to Statistical Arbitrage: Time Series Models](../09_time_series_models/README.md), we demonstrate how to forecast macro variables as inputs to market expectations and how to forecast risk factors such as volatility
-- In Chapter 19, [RNNs for Trading: Multivariate Return Series and Text Data](../19_recurrent_neural_nets/README.md), we introduce recurrent neural networks that achieve superior performance with nonlinear time series data.
-
+#### Supervised learning for alpha factor creation and aggregation -> 모델링 방식 : 타깃 바꿔보기(매크로, 변동성), 시계열 예측(RNN)
 #### Asset allocation -> 자산배분 : 묶여있는 자산군이 아니라 특성에 따라 새로 묶고 배분해서 최적화 가능
-ML has been used to allocate portfolios based on decision-tree models that compute a hierarchical form of risk parity. As a result, risk characteristics are driven by patterns in asset prices rather than by asset classes and achieve superior risk-return characteristics.
 
-- In Chapter 5, [Portfolio Optimization and Performance Evaluation](../05_strategy_evaluation/README.md), and Chapter 13, [Unsupervised Learning: From Data-Driven Risk Factors to Hierarchical Risk Parity](../13_unsupervised_learning/README.md), we illustrate how hierarchical clustering extracts data-driven risk classes that better reflect correlation patterns than conventional asset class definition (see Chapter 16 in De Prado, 2018).
 
-#### Testing trade ideas - 크로스 밸리데이션, 시뮬레이션(GAN)
 
-Backtesting is a critical step to select successful algorithmic trading strategies. Cross-validation using synthetic data is a key ML technique to generate reliable out-of-sample results when combined with appropriate methods to correct for multiple testing. The time-series nature of financial data requires modifications to the standard approach to avoid look-ahead bias or otherwise contaminate the data used for training, validation, and testing. In addition, the limited availability of historical data has given rise to alternative approaches that use synthetic data:
-We will demonstrate various methods to test ML models using market, fundamental, and alternative that obtain sound estimates of out-of-sample errors.
-In Chapter 21, [Generative Adversarial Networks for Synthetic Training Data](../21_gans_for_synthetic_time_series/README.md), we present generative adversarial networks (GANs) that are capable of producing high-quality synthetic data.
-
-#### Reinforcement learning - 주문에서 많이 사용
-
-Trading takes place in a competitive, interactive marketplace. Reinforcement learning aims to train agents to learn a policy function based on rewards; it is often considered as one of the most promising areas in financial ML. See, e.g. Hendricks and Wilcox (2014) and Nevmyvaka, Feng, and Kearns (2006) for applications to trade execution.
-- In Chapter 22, [Deep Reinforcement Learning: Building a Trading Agent](../22_deep_reinforcement_learning/README.md), we present key reinforcement algorithms like Q-learning to demonstrate the training of reinforcement algorithms for trading using OpenAI's Gym environment.
 
 ## Resources & References
 
