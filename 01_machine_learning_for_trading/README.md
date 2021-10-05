@@ -6,22 +6,10 @@
  - 참고. 5장. 위험조정지표 : 샤프비율, 트레이너지수, 젠센알파, 정보비율(IC*BR^0.5, 정보 계수 IC=(2×Proportion Correct)−1의 곱) = 알파/트래킹 에러]
  왜? ex. 종목 선택 전략 / 마켓 타이밍 전략 비교 가능
 
-1. 책 구성
-2. 
-3. 
-4. 
-
 1. 투자자별 위험선호도(KYC)에 따른 매력적인 목표 수익률을 제공하고자
 2. 시장 거래를 관찰
 3. 포트폴리오 매니저의 매매행위
  하는 포트폴리오를 보유하기 위한 매수/매도 주문
-
-트레이딩 ? (+목표)
-2. 머신러닝이란?
-3. 궁금적인 목적 (알파)
-- 기타 IR, IC
-
-책 목차
 
 
 Algorithmic trading relies on computer programs that execute algorithms to automate some or all elements of a trading strategy. **Algorithms** are a sequence of steps or rules designed to achieve a goal. They can take many forms and facilitate optimization throughout the investment process, from idea generation to asset allocation, trade execution, and risk management.
@@ -84,7 +72,7 @@ This chapter looks at industry trends that have led to the emergence of ML as a 
 ### 전자거래에서 고빈도 거래까지
 
 처음에는 시장충격 제한위해 시간에 걸쳐 주문 분산시키는 주문실행 목적으로 사용 - 이후 매수 쪽으로 진행 - 단기 가격 및 거래량 예측, 거래비용 및 유동성까지 고려
-고빈도 거래 : 마이크로초 단위 [패시브 : , 액티브 : Momentum Ignition(다른 알고리즘 움직이게 만드는거), Liquidity Detection ]
+고빈도 거래 : 마이크로초 단위 [패시브 : 차익 거래, 액티브 : Momentum Ignition(다른 알고리즘 움직이게 만드는거), Liquidity Detection ]
 
 - [Dark Pool Trading & Finance](https://www.cfainstitute.org/en/advocacy/issues/dark-pools), CFA Institute
 - [Dark Pools in Equity Trading: Policy Concerns and Recent Developments](https://crsreports.congress.gov/product/pdf/R/R43739), Congressional Research Service, 2014
@@ -110,65 +98,53 @@ but! apt는 어떤 factor, 몇개의 factor가 필요한지 알기 어렵다 > �
 
 #### ML driven funds attract $1 trillion AUM
 
-Morgan Stanley estimated in 2017 that algorithmic strategies have grown at 15% per year over the past six years and control about $1.5 trillion between hedge funds, mutual funds, and smart beta ETFs. Other reports suggest the quantitative hedge fund industry was about to exceed $1 trillion AUM, nearly doubling its size since 2010 amid outflows from traditional hedge funds. In contrast, total hedge fund industry capital hit $3.21 trillion according to the latest global Hedge Fund Research report.
+규모 늘어나고, 적용범위도 넓어지는중 -> ex. ETF 관리, 로보어드바이저 (from 아이디어 창출&리서치 to 거래 실행&위험 관리)
 
 - [Global Algorithmic Trading Market to Surpass US$ 21,685.53 Million by 2026](https://www.bloomberg.com/press-releases/2019-02-05/global-algorithmic-trading-market-to-surpass-us-21-685-53-million-by-2026)
 - [The stockmarket is now run by computers, algorithms and passive managers](https://www.economist.com/briefing/2019/10/05/the-stockmarket-is-now-run-by-computers-algorithms-and-passive-managers), Economist, Oct 5, 2019
 
 #### The emergence of quantamental funds
 
-Two distinct approaches have evolved in active investment management: systematic (or quant) and discretionary investing. Systematic approaches rely on algorithms for a repeatable and data-driven approach to identify investment opportunities across many securities; in contrast, a discretionary approach involves an in-depth analysis of a smaller number of securities. These two approaches are becoming more similar as fundamental managers take more data-science-driven approaches.
-
-Even fundamental traders now arm themselves with quantitative techniques, accounting for $55 billion of systematic assets, according to Barclays. Agnostic to specific companies, quantitative funds trade patterns and dynamics across a wide swath of securities. Quants now account for about 17% of total hedge fund assets, data compiled by Barclays shows.
+systematic (or quant) : 알고리즘에만 의존
+discretionary investing : 심층적 분석도 사용 (알고리즘으로 한번 걸러내고 리서치 추가 이용, 맨 플러스 머신)
 
 ### ML and alternative data
 
-Hedge funds have long looked for alpha through informational advantage and the ability to uncover new uncorrelated signals. Historically, this included things such as proprietary surveys of shoppers, or voters ahead of elections or referendums. Occasionally, the use of company insiders, doctors, and expert networks to expand knowledge of industry trends or companies crosses legal lines: a series of prosecutions of traders, portfolio managers, and analysts for using insider information after 2010 has shaken the industry.
-
-In contrast, the informational advantage from exploiting conventional and alternative data sources using ML is not related to expert and industry networks or access to corporate management, but rather the ability to collect large quantities of data and analyze them in real-time.
-
-Three trends have revolutionized the use of data in algorithmic trading strategies and may further shift the investment industry from discretionary to quantitative styles:
-- The exponential increase in the amount of digital data 
-- The increase in computing power and data storage capacity at lower cost
-- The advances in ML methods for analyzing complex datasets
+디지털 데이터 양 증가, 컴퓨팅 파워 증가, 데이터 분석 위한 머신러닝 기법 발달
+전통적인 데이터 : 경제 통계, 거래 데이터, 기업 보고서
+대체 데이터 : 실적관련[취업공고 감소, 임원 내부등급 평가, 해당 사이트 의류 평균가격 하락, 주차장 위성 이미지, 모바일 위치정보, 신용카드 판매 데이터], 감성분석, 웹사이트 스크래핑 등
+> 데이터 커서 병렬처리 위한 하둡, 스파크 사용
 
 - [Can We Predict the Financial Markets Based on Google's Search Queries?](https://onlinelibrary.wiley.com/doi/abs/10.1002/for.2446), Perlin, et al, 2016, Journal of Forecasting
 
+### 크라우드 소싱 거래 알고리즘
+퀀토피안은 망함..
+
 ## Designing and executing an ML-driven strategy
 
-ML can add value at multiple steps in the lifecycle of a trading strategy, and relies on key infrastructure and data resources. Hence, this book aims to addresses how ML techniques fit into the broader process of designing, executing, and evaluating strategies.
-
-An algorithmic trading strategy is driven by a combination of alpha factors that transform one or several data sources into signals that in turn predict future asset returns and trigger buy or sell orders. Chapter 2, Market and Fundamental Data and Chapter 3, Alternative Data for Finance cover the sourcing and management of data, the raw material and the single most important driver of a successful trading strategy.  
+데이터 > 피쳐 엔지니어링 > 포트폴리오 관리 및 성과 추적(8장 백테스팅)
 
 [Chapter 4, Alpha Factor Research](../04_alpha_factor_research) outlines a methodologically sound process to manage the risk of false discoveries that increases with the amount of data. [Chapter 5, Strategy Evaluation](../05_strategy_evaluation) provides the context for the execution and performance measurement of a trading strategy.
 
-The following subsections outline these steps, which we will discuss in depth throughout the book.
-
 ### Sourcing and managing data
 
-The dramatic evolution of data availability in terms of volume, variety, and velocity is a key complement to the application of ML to trading, which in turn has boosted industry spending on the acquisition of new data sources. However, the proliferating supply of data requires careful selection and management to uncover the potential value, including the following steps:
-
 1. Identify and evaluate market, fundamental, and alternative data sources containing alpha signals that do not decay too quickly.
-2. Deploy or access a cloud-based scalable data infrastructure and analytical tools like Hadoop or Spark to facilitate fast, flexible data access.
-3. Carefully manage and curate data to avoid look-ahead bias by adjusting it to the desired frequency on a point-in-time basis. This means that data should reflect only information available and known at the given time. ML algorithms trained on distorted historical data will almost certainly fail during live trading.
-
-We will cover these aspects in practical detail in Chapter 2, Market and Fundamental Data: Sources and Techniques, and Chapter 3, Alternative Data for Finance: Categories and Use Cases.
+2. DB 잘 짜서 빠르고 유연해야한다 (Hadoop or Spark)
+3. Point-In-Time 기반한 데이터셋 만들어서 Look-ahead bias 피해야 한다
 
 ### From alpha factor research to portfolio management
 
-Alpha factors are designed to extract signals from data to predict asset returns for a given investment universe over the trading horizon. A factor takes on a single value for each asset when evaluated, but may combine one or several input variables. The process involves the steps outlined in the following figure:
+알파 팩터 만들기 : 여러개 이용해서 만들수도 있음 > 차원축소, 클러스터링 등 가능 + 해야함 (단일은 이미 알파 다 빼먹었기 때문)
 
-The Research phase of the trading strategy workflow includes the design, evaluation, and combination of alpha factors. ML plays a large role in this process because the complexity of factors has increased as investors react to both the signal decay of simpler factors and the much richer data available today.
-
-Alpha factors emit entry and exit signals that lead to buy or sell orders, and order execution results in portfolio holdings. The risk profiles of individual positions interact to create a specific portfolio risk profile. Portfolio management involves the optimization of position weights to achieve the desired portfolio risk and return a profile that aligns with the overall investment objectives. This process is highly dynamic to incorporate continuously-evolving market data.
+실행단에서는 포트폴리오 최적화 포함 (ex. 개별주식 수익률 및 변동성 예측 > 포트폴리오 구성) - 5장
 
 ### Strategy backtesting
 
-The incorporation of an investment idea into an algorithmic strategy requires extensive testing with a scientific approach that attempts to reject the idea based on its performance in alternative out-of-sample market scenarios. Testing may involve simulated data to capture scenarios deemed possible but not reflected in historic data.
+백테스팅 거쳐서 통과하면 실제로 전략풀에 넣는다 (ex. 시뮬레이션)
 
 ## ML for trading in practice: strategies and use cases
 
-In practice, we apply ML to trading in the context of a specific strategy to meet a certain business goal. In this section, we briefly describe how trading strategies have evolved and diversified, and outline real-world examples of ML applications, highlighting how they relate to the content covered in this book.
+ML 실제사례
 
 ### The evolution of algorithmic strategies
 
@@ -179,14 +155,13 @@ Quantitative strategies have evolved and become more sophisticated in three wave
 3. The third era is driven by investments in ML capabilities and alternative data to generate profitable signals for repeatable trading strategies. Factor decay is a major challenge: the excess returns from new anomalies have been shown to drop by a quarter from discovery to publication, and by over 50 percent after publication due to competition and crowding.
 
 Today, traders pursue a range of different objectives when using algorithms to execute rules:
-- Trade execution algorithms that aim to achieve favorable pricing
-- Short-term trades that aim to profit from small price movements, for example, due to arbitrage
-- Behavioral strategies that aim to anticipate the behavior of other market participants
-- Trading strategies based on absolute and relative price and return predictions
+- 주문집행
+- HFT (차익거래)
+- 행동 예측
+- Asset Pricing 기반 전략
 
 ### Use cases of ML for trading
 
-ML extracts signals from a wide range of market, fundamental, and alternative data, and can be applied at all steps of the algorithmic trading-strategy process. Key applications include:
 - Data mining to identify patterns, extract features and generate insights
 - Supervised learning to generate risk factors or alphas and create trade ideas
 - Aggregation of individual signals into a strategy
@@ -196,17 +171,17 @@ ML extracts signals from a wide range of market, fundamental, and alternative da
 
 We briefly highlight some of these applications and identify where we will demonstrate their use in later chapters.
 
-#### Data mining for feature extraction and insights
+#### Data mining for feature extraction and insights -> 피쳐 뽑기
 
 The cost-effective evaluation of large, complex datasets requires the detection of signals at scale. There are several examples throughout the book:
-- **Information theory** helps estimate a signal content of candidate features is thus useful for extracting the most valuable inputs for an ML model. In Chapter 4, Financial Feature Engineering: How to Research Alpha Factors, we use mutual information to compare the potential values of individual features for a supervised learning algorithm to predict asset returns. Chapter 18 in De Prado (2018) estimates the information content of a price series as a basis for deciding between alternative trading strategies.
-- **Unsupervised learning** provides a broad range of methods to identify structure in data to gain insights or help solve a downstream task. We provide several examples: 
+- **Information theory** : 해당 피쳐 평가 통한 입력변수 추출에 활용
+- **Unsupervised learning**  ex. 크래프트
     - In Chapter 13, [Unsupervised Learning: From Data-Driven Risk Factors to Hierarchical Risk Parity](../13_unsupervised_learning/README.md), we introduce clustering and dimensionality reduction to generate features from high-dimensional datasets. 
     - In Chapter 15, [Topic Modeling for Earnings Calls and Financial News](../15_topic_modeling/README.md), we apply Bayesian probability models to summarize financial text data.
     - In Chapter 20: [Autoencoders for Conditional Risk Factors](../20_autoencoders_for_conditional_risk_factors), we used deep learning to extract non-linear risk factors conditioned on asset characteristics and predict stock returns based on [Kelly et. al.](https://www.aqr.com/Insights/Research/Working-Paper/Autoencoder-Asset-Pricing-Models) (2020).
-- **Model transparency**: we emphasize model-specific ways to gain insights into the predictive power of individual variables and introduce a novel game-theoretic approach called SHapley Additive exPlanations (SHAP). We apply it to gradient boosting machines with a large number of input variables in Chapter 12, Boosting your Trading Strategy and the Appendix.
+- **Model transparency**: 피쳐 중요도.. we emphasize model-specific ways to gain insights into the predictive power of individual variables and introduce a novel game-theoretic approach called SHapley Additive exPlanations (SHAP). We apply it to gradient boosting machines with a large number of input variables in Chapter 12, Boosting your Trading Strategy and the Appendix.
 
-#### Supervised learning for alpha factor creation and aggregation
+#### Supervised learning for alpha factor creation and aggregation -> 모델링
 
 The most familiar rationale for applying ML to trading is to obtain predictions of asset fundamentals, price movements, or market conditions. A strategy can leverage multiple ML algorithms that build on each other:
 
@@ -219,18 +194,18 @@ ML predictions can also **target specific risk factors**, such as value or volat
 - In Chapter 9, [From Volatility Forecasts to Statistical Arbitrage: Time Series Models](../09_time_series_models/README.md), we demonstrate how to forecast macro variables as inputs to market expectations and how to forecast risk factors such as volatility
 - In Chapter 19, [RNNs for Trading: Multivariate Return Series and Text Data](../19_recurrent_neural_nets/README.md), we introduce recurrent neural networks that achieve superior performance with nonlinear time series data.
 
-#### Asset allocation
+#### Asset allocation -> 자산배분 : 묶여있는 자산군이 아니라 특성에 따라 새로 묶고 배분해서 최적화 가능
 ML has been used to allocate portfolios based on decision-tree models that compute a hierarchical form of risk parity. As a result, risk characteristics are driven by patterns in asset prices rather than by asset classes and achieve superior risk-return characteristics.
 
 - In Chapter 5, [Portfolio Optimization and Performance Evaluation](../05_strategy_evaluation/README.md), and Chapter 13, [Unsupervised Learning: From Data-Driven Risk Factors to Hierarchical Risk Parity](../13_unsupervised_learning/README.md), we illustrate how hierarchical clustering extracts data-driven risk classes that better reflect correlation patterns than conventional asset class definition (see Chapter 16 in De Prado, 2018).
 
-#### Testing trade ideas
+#### Testing trade ideas - 크로스 밸리데이션, 시뮬레이션(GAN)
 
 Backtesting is a critical step to select successful algorithmic trading strategies. Cross-validation using synthetic data is a key ML technique to generate reliable out-of-sample results when combined with appropriate methods to correct for multiple testing. The time-series nature of financial data requires modifications to the standard approach to avoid look-ahead bias or otherwise contaminate the data used for training, validation, and testing. In addition, the limited availability of historical data has given rise to alternative approaches that use synthetic data:
 We will demonstrate various methods to test ML models using market, fundamental, and alternative that obtain sound estimates of out-of-sample errors.
 In Chapter 21, [Generative Adversarial Networks for Synthetic Training Data](../21_gans_for_synthetic_time_series/README.md), we present generative adversarial networks (GANs) that are capable of producing high-quality synthetic data.
 
-#### Reinforcement learning
+#### Reinforcement learning - 주문에서 많이 사용
 
 Trading takes place in a competitive, interactive marketplace. Reinforcement learning aims to train agents to learn a policy function based on rewards; it is often considered as one of the most promising areas in financial ML. See, e.g. Hendricks and Wilcox (2014) and Nevmyvaka, Feng, and Kearns (2006) for applications to trade execution.
 - In Chapter 22, [Deep Reinforcement Learning: Building a Trading Agent](../22_deep_reinforcement_learning/README.md), we present key reinforcement algorithms like Q-learning to demonstrate the training of reinforcement algorithms for trading using OpenAI's Gym environment.
