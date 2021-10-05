@@ -140,11 +140,9 @@ discretionary investing : 심층적 분석도 사용 (알고리즘으로 한번 
 
 
 
-## ML for trading in practice: strategies and use cases
+## ML 적용 실제사례
 
-ML 실제사례
-
-### The evolution of algorithmic strategies
+### 썰풀기
 
 1. In the 1980s and 1990s, signals often emerged from academic research and used a single or very few inputs derived from market and fundamental data. AQR, one of the largest quantitative hedge funds today, was founded in 1998 to implement such strategies at scale. These signals are now largely commoditized and available as ETF, such as basic mean-reversion strategies.
 2. In the 2000s, factor-based investing proliferated based on the pioneering work by Eugene Fama and Kenneth French and others. Funds used algorithms to identify assets exposed to risk factors like value or momentum to seek arbitrage opportunities. Redemptions during the early days of the financial crisis triggered the quant quake of August 2007 that cascaded through the factor-based fund industry. These strategies are now also available as long-only smart beta funds that tilt portfolios according to a given set of risk factors.
@@ -156,11 +154,9 @@ Today, traders pursue a range of different objectives when using algorithms to e
 - 행동 예측
 - Asset Pricing 기반 전략
 
+### 책에서 따라하는 실제사례
 
-
-### Use cases of ML for trading
-
-- 개별 신호를 전략을 통합 (메릴린치 방식)
+- ... 개별 신호를 전략을 통합 (메릴린치 방식) ...
 
 #### Data mining for feature extraction and insights -> 피쳐 뽑기
 
