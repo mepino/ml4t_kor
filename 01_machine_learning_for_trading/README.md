@@ -67,6 +67,7 @@
 ### 전자거래에서 고빈도 거래까지
 
 요약 : Execution 단에서 잘했다 (22장)
+
 처음에는 시장충격 제한위해 시간에 걸쳐 주문 분산시키는 주문실행 목적으로 사용 - 이후 매수 쪽으로 진행 - 단기 가격 및 거래량 예측, 거래비용 및 유동성까지 고려
 이후 고빈도 거래에도 사용(마이크로초 단위의 거래 ~ 패시브 : 차익 거래 / 액티브 : Momentum Ignition(다른 알고리즘 움직이게 만드는거), Liquidity Detection)
 
@@ -77,6 +78,7 @@
 ### 팩터 투자와 스마트 투자
 
 요약 : Feature 단에서 잘했다. (4, 13, 20장, 3부[자연어], 4부[이미지])
+
 (마코비츠)모든 투자자는 자신의 포트폴리오를 최적화 시키려 한다 by 수익률 & 위험
 -> 수익률은 불확실성과 위험의 함수 ex) 주식 : 회사의 사업위험, 채권 : 디폴트 위험
 -> 리스크 요소별로 나누고 그 움직임을 예측해보자!
@@ -117,29 +119,6 @@ discretionary investing : 심층적 분석도 사용 (알고리즘으로 한번 
 ### 크라우드 소싱 거래 알고리즘
 퀀토피안은 망함..
 
-## Designing and executing an ML-driven strategy
-
-데이터 > 피쳐 엔지니어링 > 포트폴리오 관리 및 성과 추적(8장 백테스팅)
-
-[Chapter 4, Alpha Factor Research](../04_alpha_factor_research) outlines a methodologically sound process to manage the risk of false discoveries that increases with the amount of data. [Chapter 5, Strategy Evaluation](../05_strategy_evaluation) provides the context for the execution and performance measurement of a trading strategy.
-
-### Sourcing and managing data
-
-1. Identify and evaluate market, fundamental, and alternative data sources containing alpha signals that do not decay too quickly.
-2. DB 잘 짜서 빠르고 유연해야한다 (Hadoop or Spark)
-3. Point-In-Time 기반한 데이터셋 만들어서 Look-ahead bias 피해야 한다
-
-### From alpha factor research to portfolio management
-
-알파 팩터 만들기 : 여러개 이용해서 만들수도 있음 > 차원축소, 클러스터링 등 가능 + 해야함 (단일은 이미 알파 다 빼먹었기 때문)
-
-실행단에서는 포트폴리오 최적화 포함 (ex. 개별주식 수익률 및 변동성 예측 > 포트폴리오 구성) - 5장
-
-### Strategy backtesting
-
-백테스팅 거쳐서 통과하면 실제로 전략풀에 넣는다 (ex. 시뮬레이션)
-
-
 
 ## ML 적용 실제사례
 
@@ -158,7 +137,19 @@ discretionary investing : 심층적 분석도 사용 (알고리즘으로 한번 
 
 ### 책에서 따라하는 실제사례
 
-- ... 개별 신호를 전략을 통합 (메릴린치 방식) ...
+### Sourcing and managing data
+
+1. DB 잘 짜서 빠르고 유연해야한다 (분산처리용; Hadoop, Spark)
+2. Point-In-Time 기반한 데이터셋 만들어서 Look-ahead bias 및 생존자 편향 피해야 한다
+
+### From alpha factor research to portfolio management
+
+알파 팩터 만들기 : 여러개 이용해서 만들수도 있음 > 차원축소, 클러스터링 등 해야함 (단일은 이미 알파 다 빼먹었기 때문)
+실행단에서는 포트폴리오 최적화 포함 (ex. 개별주식 수익률 및 변동성 예측 > 포트폴리오 구성) - 5장
+
+### Strategy backtesting
+
+백테스팅 거쳐서 통과하면 실제로 전략풀에 넣는다 (ex. 시뮬레이션) > 탈락하면 확인해보고 개별 신호로 사용 (메릴린치 방식)
 
 #### Data mining for feature extraction and insights -> 피쳐 뽑기
 
