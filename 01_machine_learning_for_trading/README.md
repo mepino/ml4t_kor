@@ -7,32 +7,18 @@
 </p>
 
 
-**알고리즘 트레이딩** : 알고리즘(목표를 달성하기 위한 규칙이나 절차)을 사용해 실제 주문을 집행 
- - ex. Active investment management : 알파(벤치마크를 초과하는 수익률) 달성 by 정보의 우위[대체데이터] 또는 고도화된 데이터 분석
- - 참고. 5장. 위험조정지표 : 샤프비율, 트레이너지수, 젠센알파, 정보비율(IC*BR^0.5, 정보 계수 IC=(2×Proportion Correct)−1의 곱) = 알파/트래킹 에러]
- 왜? ex. 종목 선택 전략 / 마켓 타이밍 전략 비교 가능
+**알고리즘 트레이딩** : 알고리즘(목표를 달성하기 위한 규칙이나 절차)을 사용해 실제 주문을 집행. 끝에서 부터 보면,
+ - 목표 예시. Active investment management : 알파(벤치마크를 초과하는 수익률) 달성
+ - Evaluation 예시. 위험조정지표 : 샤프비율, 트레이너지수, 젠센알파, 정보비율(IC*BR^0.5, 정보 계수 IC=(2×Proportion Correct)−1의 곱) = 알파/트래킹 에러] > 왜? ex. 종목 선택 전략 / 마켓 타이밍 전략 비교 가능
+ - 방법 예시. 정보의 우위[대체데이터](#ml-and-alternative-data) 또는 고도화된 데이터 분석
+
+책 기준으로 보면, 각자 자신의 목표를 기준으로 평가방법(5, 8장) 세우고 데이터(2, 3장) 이용해서 피쳐(4, 13, 20장, 3부[자연어], 4부[이미지]) 뽑아내고 자산별 예측 모델(7, 9~12, 19장) 결과값 넣어서 포트폴리오 최적화(5장) 된 걸 주문(22장)
 
 1. 투자자별 위험선호도(KYC)에 따른 매력적인 목표 수익률을 제공하고자
 2. 시장 거래를 관찰
 3. 포트폴리오 매니저의 매매행위
  하는 포트폴리오를 보유하기 위한 매수/매도 주문
 
-
-Algorithmic trading relies on computer programs that execute algorithms to automate some or all elements of a trading strategy. **Algorithms** are a sequence of steps or rules designed to achieve a goal. They can take many forms and facilitate optimization throughout the investment process, from idea generation to asset allocation, trade execution, and risk management.
-
-**Machine learning** (ML) involves algorithms that learn rules or patterns from data to achieve a goal such as minimizing a prediction error. The examples in this book will illustrate how ML algorithms can extract information from data to support or automate key investment activities. These activities include observing the market and analyzing data to form expectations about the future and decide on placing buy or sell orders, as well as managing the resulting portfolio to produce attractive returns relative to the risk.
-
-Ultimately, the goal of active investment management is to generate alpha, defined as portfolio returns in excess of the benchmark used for evaluation. The **fundamental law of active management** postulates that the key to generating alpha is having accurate return forecasts combined with the ability to act on these forecasts (Grinold 1989; Grinold and Kahn 2000).
-
-It defines the **information ratio** (IR) to express the value of active management as the ratio of the return difference between the portfolio and a benchmark to the volatility of those returns. It further approximates the IR as the product of
-- The **information coefficient** (IC), which measures the quality of forecast as their rank correlation with the outcomes
-- The square root of the **breadth of a strategy** expressed as the number of independent bets on these forecasts
-
-The competition of sophisticated investors in financial markets implies that making precise predictions to generate alpha requires superior information, either through access to better data, a superior ability to process it, or both. This is where ML comes in: applications of **ML for trading (ML4T)** typically aim to make more efficient use of a rapidly diversifying range of data to produce both better and more actionable forecasts, thus improving the quality of investment decisions and results.
-
-Historically, algorithmic trading used to be more narrowly defined as the automation of trade execution to minimize the costs offered by the sell-side. This book takes a more comprehensive perspective since the use of algorithms in general and ML, in particular, has come to impact a broader range of activities from generating ideas and extracting signals from data to asset allocation, position-sizing, and testing and evaluating strategies.
-
-This chapter looks at industry trends that have led to the emergence of ML as a source of competitive advantage in the investment industry. We will also look at where ML fits into the investment process to enable algorithmic trading strategies. 
 
 ## Content
 
@@ -64,7 +50,8 @@ This chapter looks at industry trends that have led to the emergence of ML as a 
     * [ML Competitions & Trading](#ml-competitions--trading)
     * [Python Libraries](#python-libraries)
 
-## 썰풀기
+
+## 썰풀기 시작 : 결국 트레이딩 워크플로우 각각에서 머신러닝이 사람보다 뛰어났다는 이야기
 
 ## 투자업계에서 머신러닝의 부상
 
