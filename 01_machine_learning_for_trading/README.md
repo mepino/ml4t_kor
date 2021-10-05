@@ -124,6 +124,10 @@ discretionary investing : 심층적 분석도 사용 (알고리즘으로 한번 
 
 데이터 > 피쳐 엔지니어링 > 포트폴리오 관리 및 성과 추적(8장 백테스팅)
 
+<p align="center">
+<img src="https://i.imgur.com/kcgItgp.png" width="75%">
+</p>
+
 [Chapter 4, Alpha Factor Research](../04_alpha_factor_research) outlines a methodologically sound process to manage the risk of false discoveries that increases with the amount of data. [Chapter 5, Strategy Evaluation](../05_strategy_evaluation) provides the context for the execution and performance measurement of a trading strategy.
 
 ### Sourcing and managing data
