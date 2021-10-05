@@ -79,35 +79,34 @@
 
 요약 : Feature 단에서 잘했다. (4, 13, 20장, 3부[자연어], 4부[이미지])
 
-(마코비츠)모든 투자자는 자신의 포트폴리오를 최적화 시키려 한다 by 수익률 & 위험
+1. (마코비츠)모든 투자자는 자신의 포트폴리오를 최적화 시키려 한다 by 수익률 & 위험
 -> 수익률은 불확실성과 위험의 함수 ex) 주식 : 회사의 사업위험, 채권 : 디폴트 위험
 -> 리스크 요소별로 나누고 그 움직임을 예측해보자!
 
-현대 포트폴리오 이론 : 체계적 위험, 비체계적 위험의 원천 구별 (risk 요인 구별, risk free, Unsystematic risk는 없앨 수 있다)
+2. 현대 포트폴리오 이론 : 체계적 위험, 비체계적 위험의 원천 구별 (risk 요인 구별, risk free, Unsystematic risk는 없앨 수 있다)
 "시장" 포트폴리오가 efficient하다 > CAPM(Asset Pricing Model) : 특정한 자산의 가격은 그 자산의 "beta" 알면 구할 수 있다 (risk free + 시장위험) [아닌자산 있으면 돈벌 수 있다] : 주식가격 분석하는 좋은 툴
-MPT + 제대로 작동하는 시장에선 아비트라지가 없다 > 다요인 모형 : APT모형[GDP, 인플레이션], 파마-프렌치 모형, 가치투자(벤자민 그래험, 워런 버핏 등), 모멘텀]
+
+3. 다요인 모형 : APT모형[GDP, 인플레이션], 파마-프렌치 모형, 가치투자(벤자민 그래험, 워런 버핏 등), 모멘텀
 
 2008 금융위기 > 자산군으로만 나누는게 아니라 factor 기준으로 나누는게 필요
 
-but! apt는 어떤 factor, 몇개의 factor가 필요한지 알기 어렵다 > 머신러닝 등장
+but! apt는 어떤 factor, 몇개의 factor가 필요한지 알기 어렵다 > 머신러닝 적용
 
 ### 알고리즘 개척자는 인간보다 우위
+요약 : 전략도 잘짠다 (사람 같이 쓰는곳들도 있다)
+ex. 다이쇼, 시타델, 투시그마, 르네상스 테크놀로지, AQR
 
-다이쇼, 시타델, 투시그마, 르네상스 테크놀로지, AQR
+systematic (or quant) : 알고리즘에만 의존
+퀀터멘탈 ~ discretionary investing : 심층적 분석도 사용 (알고리즘으로 한번 걸러내고 리서치 추가 이용, 맨 플러스 머신)
 
-#### ML driven funds attract $1 trillion AUM
-
-규모 늘어나고, 적용범위도 넓어지는중 -> ex. ETF 관리, 로보어드바이저 (from 아이디어 창출&리서치 to 거래 실행&위험 관리)
+#### 결과적으로 ML driven funds attract $1 trillion AUM
+요약 : 규모 늘어나고, 적용범위도 넓어지는중 -> ex. ETF 관리, 로보어드바이저 (from 아이디어 창출&리서치 to 거래 실행&위험 관리)
 
 - [Global Algorithmic Trading Market to Surpass US$ 21,685.53 Million by 2026](https://www.bloomberg.com/press-releases/2019-02-05/global-algorithmic-trading-market-to-surpass-us-21-685-53-million-by-2026)
 - [The stockmarket is now run by computers, algorithms and passive managers](https://www.economist.com/briefing/2019/10/05/the-stockmarket-is-now-run-by-computers-algorithms-and-passive-managers), Economist, Oct 5, 2019
 
-#### The emergence of quantamental funds
-
-systematic (or quant) : 알고리즘에만 의존
-discretionary investing : 심층적 분석도 사용 (알고리즘으로 한번 걸러내고 리서치 추가 이용, 맨 플러스 머신)
-
 ### ML and alternative data
+요약 : 퀀트 내에서도 머신러닝 사용 증가추세
 
 디지털 데이터 양 증가, 컴퓨팅 파워 증가, 데이터 분석 위한 머신러닝 기법 발달
 전통적인 데이터 : 경제 통계, 거래 데이터, 기업 보고서
@@ -145,13 +144,14 @@ discretionary investing : 심층적 분석도 사용 (알고리즘으로 한번 
 ### From alpha factor research to portfolio management
 
 알파 팩터 만들기 : 여러개 이용해서 만들수도 있음 > 차원축소, 클러스터링 등 해야함 (단일은 이미 알파 다 빼먹었기 때문)
+
 실행단에서는 포트폴리오 최적화 포함 (ex. 개별주식 수익률 및 변동성 예측 > 포트폴리오 구성) - 5장
 
 ### Strategy backtesting
 
 백테스팅 거쳐서 통과하면 실제로 전략풀에 넣는다 (ex. 시뮬레이션) > 탈락하면 확인해보고 개별 신호로 사용 (메릴린치 방식)
 
-#### Data mining for feature extraction and insights -> 피쳐 뽑기
+### Data mining for feature extraction and insights -> 피쳐 뽑기
 
 - **Information theory** : 해당 피쳐 평가 통한 입력변수 추출에 활용
 - **Unsupervised learning**  ex. 크래프트
@@ -160,8 +160,8 @@ discretionary investing : 심층적 분석도 사용 (알고리즘으로 한번 
     - In Chapter 20: [Autoencoders for Conditional Risk Factors](../20_autoencoders_for_conditional_risk_factors), we used deep learning to extract non-linear risk factors conditioned on asset characteristics and predict stock returns based on [Kelly et. al.](https://www.aqr.com/Insights/Research/Working-Paper/Autoencoder-Asset-Pricing-Models) (2020).
 - **Model transparency**: 피쳐 중요도..
 
-#### Supervised learning for alpha factor creation and aggregation -> 모델링 방식 : 타깃 바꿔보기(매크로, 변동성), 시계열 예측(RNN)
-#### Asset allocation -> 자산배분 : 묶여있는 자산군이 아니라 특성에 따라 새로 묶고 배분해서 최적화 가능
+### Supervised learning for alpha factor creation and aggregation -> 모델링 방식 : 타깃 바꿔보기(매크로, 변동성), 시계열 예측(RNN)
+### Asset allocation -> 자산배분 : 묶여있는 자산군이 아니라 특성에 따라 새로 묶고 배분해서 최적화 가능 (5, 13장)
 
 ## Resources & References
 
