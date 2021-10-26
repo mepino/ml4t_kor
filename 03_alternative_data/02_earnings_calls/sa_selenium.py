@@ -87,25 +87,30 @@ TRANSCRIPT = re.compile('Earnings Call Transcript')
 
 next_page = True
 page = 1
-driver = webdriver.Firefox()
+#driver = webdriver.Firefox()
+driver = webdriver.Chrome(executable_path=r'C:\Users\kiwoom\ml4t\03_alternative_data\01_opentable\chromedriver.exe')
 while next_page:
     print(f'Page: {page}')
     url = f'{SA_URL}/earnings/earnings-call-transcripts/{page}'
     driver.get(urljoin(SA_URL, url))
     sleep(8 + (random() - .5) * 2)
     response = driver.page_source
-    page += 1
+    #page += 1
+    page += 0
     soup = BeautifulSoup(response, 'lxml')
     links = soup.find_all(name='a', string=TRANSCRIPT)
     if len(links) == 0:
         next_page = False
     else:
-        for link in links:
+        #for link in links:
+        for link in links[:2]:
             transcript_url = link.attrs.get('href')
             article_url = furl(urljoin(SA_URL, transcript_url)).add({'part': 'single'})
             driver.get(article_url.url)
             html = driver.page_source
             result = parse_html(html)
+            print('jerer')
+            print(result)
             if result is not None:
                 meta, participants, content = result
                 meta['link'] = link

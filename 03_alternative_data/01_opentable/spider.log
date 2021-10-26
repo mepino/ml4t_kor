@@ -1,0 +1,86 @@
+2021-10-13 09:53:01 [scrapy.utils.log] INFO: Scrapy 2.5.0 started (bot: opentable)
+2021-10-13 09:53:01 [scrapy.utils.log] INFO: Versions: lxml 4.6.3.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 21.2.0, Python 3.8.8 | packaged by conda-forge | (default, Feb 20 2021, 15:50:08) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 20.0.1 (OpenSSL 1.1.1k  25 Mar 2021), cryptography 3.4.7, Platform Windows-10-10.0.18362-SP0
+2021-10-13 09:53:01 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2021-10-13 09:53:01 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_DEBUG': True,
+ 'BOT_NAME': 'opentable',
+ 'CONCURRENT_REQUESTS': 1,
+ 'DUPEFILTER_CLASS': 'scrapy_splash.SplashAwareDupeFilter',
+ 'HTTPCACHE_STORAGE': 'scrapy_splash.SplashAwareFSCacheStorage',
+ 'LOG_FILE': 'spider.log',
+ 'NEWSPIDER_MODULE': 'opentable.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['opentable.spiders']}
+2021-10-13 09:53:01 [scrapy.extensions.telnet] INFO: Telnet Password: afcb31b865874138
+2021-10-13 09:53:01 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2021-10-13 09:53:01 [twisted] CRITICAL: Unhandled error in Deferred:
+2021-10-13 09:53:01 [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\site-packages\twisted\internet\defer.py", line 1445, in _inlineCallbacks
+    result = current_context.run(g.send, result)
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\site-packages\scrapy\crawler.py", line 87, in crawl
+    self.engine = self._create_engine()
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\site-packages\scrapy\crawler.py", line 101, in _create_engine
+    return ExecutionEngine(self, lambda _: self.stop())
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\site-packages\scrapy\core\engine.py", line 69, in __init__
+    self.downloader = downloader_cls(crawler)
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\site-packages\scrapy\core\downloader\__init__.py", line 83, in __init__
+    self.middleware = DownloaderMiddlewareManager.from_crawler(crawler)
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\site-packages\scrapy\middleware.py", line 53, in from_crawler
+    return cls.from_settings(crawler.settings, crawler)
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\site-packages\scrapy\middleware.py", line 34, in from_settings
+    mwcls = load_object(clspath)
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\site-packages\scrapy\utils\misc.py", line 61, in load_object
+    mod = import_module(module)
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'random_useragent'
+2021-10-13 09:54:03 [scrapy.utils.log] INFO: Scrapy 2.5.0 started (bot: opentable)
+2021-10-13 09:54:03 [scrapy.utils.log] INFO: Versions: lxml 4.6.3.0, libxml2 2.9.10, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 21.2.0, Python 3.8.8 | packaged by conda-forge | (default, Feb 20 2021, 15:50:08) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 20.0.1 (OpenSSL 1.1.1k  25 Mar 2021), cryptography 3.4.7, Platform Windows-10-10.0.18362-SP0
+2021-10-13 09:54:03 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.selectreactor.SelectReactor
+2021-10-13 09:54:03 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_DEBUG': True,
+ 'BOT_NAME': 'opentable',
+ 'CONCURRENT_REQUESTS': 1,
+ 'DUPEFILTER_CLASS': 'scrapy_splash.SplashAwareDupeFilter',
+ 'HTTPCACHE_STORAGE': 'scrapy_splash.SplashAwareFSCacheStorage',
+ 'LOG_FILE': 'spider.log',
+ 'NEWSPIDER_MODULE': 'opentable.spiders',
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['opentable.spiders']}
+2021-10-13 09:54:03 [scrapy.extensions.telnet] INFO: Telnet Password: 7ad86034095c4e86
+2021-10-13 09:54:03 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2021-10-13 09:54:03 [twisted] CRITICAL: Unhandled error in Deferred:
+2021-10-13 09:54:03 [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\site-packages\twisted\internet\defer.py", line 1445, in _inlineCallbacks
+    result = current_context.run(g.send, result)
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\site-packages\scrapy\crawler.py", line 87, in crawl
+    self.engine = self._create_engine()
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\site-packages\scrapy\crawler.py", line 101, in _create_engine
+    return ExecutionEngine(self, lambda _: self.stop())
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\site-packages\scrapy\core\engine.py", line 69, in __init__
+    self.downloader = downloader_cls(crawler)
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\site-packages\scrapy\core\downloader\__init__.py", line 83, in __init__
+    self.middleware = DownloaderMiddlewareManager.from_crawler(crawler)
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\site-packages\scrapy\middleware.py", line 53, in from_crawler
+    return cls.from_settings(crawler.settings, crawler)
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\site-packages\scrapy\middleware.py", line 34, in from_settings
+    mwcls = load_object(clspath)
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\site-packages\scrapy\utils\misc.py", line 61, in load_object
+    mod = import_module(module)
+  File "C:\Users\kiwoom\anaconda3\envs\ml4t\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'random_useragent'

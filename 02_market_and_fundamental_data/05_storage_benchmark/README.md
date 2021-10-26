@@ -1,19 +1,7 @@
 ## Efficient data storage with pandas
 
-The notebook [storage_benchmark](storage_benchmark.ipynb) compares the main storage formats for efficiency and performance. 
+[storage_benchmark](storage_benchmark.ipynb)에서는 데이터 포맷의 efficiency와 performance를 비교한다.
 
-In particular, it compares:
-- CSV: Comma-separated, standard flat text file format.
-- HDF5: Hierarchical data format, developed initially at the National Center for Supercomputing, is a fast and scalable storage format for numerical data, available in pandas using the PyTables library.
-- Parquet: A binary, columnar storage format, part of the Apache Hadoop ecosystem, that provides efficient data compression and encoding and has been developed by Cloudera and Twitter. It is available for pandas through the pyarrow library, led by Wes McKinney, the original author of pandas.
-
-
-It uses a test `DataFrame` that can be configured to contain numerical or text data, or both. For the HDF5 library, we test both the fixed and table format. The table format allows for queries and can be appended to. 
-
-### Test Results
-
-In short, the results are: 
-- For purely numerical data, the HDF5 format performs best, and the table format also shares with CSV the smallest memory footprint at 1.6 GB. The fixed format uses twice as much space, and the parquet format uses 2 GB.
-- For a mix of numerical and text data, parquet is significantly faster, and HDF5 uses its advantage on reading relative to CSV.
-
-The notebook illustrates how to configure, test, and collect the timing using the `%%timeit` cell magic. At the same time demonstrates the usage of the related pandas commands required to use these storage formats.
+- CSV: 수치형 데이터 저장에 좋음
+- HDF5: 무난함, PyTable 라이브러리 통해서 사용 가능 - hadoop이랑 호환 좋음
+- Parquet: text, 수치 등 섞인 데이터 저장용으로 많이 사용, pyarrow 라이브러리 통해서 사용 가능 - spark랑 호환 좋음

@@ -33,23 +33,34 @@ def parse_html(html):
 
 # Start selenium and click through pages until reach end
 # store results by iteratively appending to csv file
-driver = webdriver.Firefox()
+#driver = webdriver.Firefox()
+
+# 추가부분 #
+#caps = webdriver.DesiredCapabilities.CHROME.copy() 
+#caps['acceptInsecureCerts'] = True
+#caps["marionette"] = False
+driver = webdriver.Chrome(executable_path='..\chromedriver.exe')
+# 추가부분 끝 #
+
 url = "https://www.opentable.com/new-york-restaurant-listings"
 driver.get(url)
 page = collected = 0
 while True:
-    sleep(1)
-    new_data = parse_html(driver.page_source)
-    if new_data.empty:
+    try:
+        sleep(1)
+        new_data = parse_html(driver.page_source)
+        if new_data.empty:
+            break
+        if page == 0:
+            new_data.to_csv('results.csv', index=False)
+        elif page > 0:
+            new_data.to_csv('results.csv', index=False, header=None, mode='a')
+        page += 1
+        collected += len(new_data)
+        print(f'Page: {page} | Downloaded: {collected}')
+        driver.find_element_by_link_text('Next').click()
+    except:
         break
-    if page == 0:
-        new_data.to_csv('results.csv', index=False)
-    elif page > 0:
-        new_data.to_csv('results.csv', index=False, header=None, mode='a')
-    page += 1
-    collected += len(new_data)
-    print(f'Page: {page} | Downloaded: {collected}')
-    driver.find_element_by_link_text('Next').click()
 
 driver.close()
 restaurants = pd.read_csv('results.csv')
